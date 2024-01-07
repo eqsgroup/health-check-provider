@@ -1,0 +1,22 @@
+{
+    "status": "fail",
+    "output": "1 dependency has a problem:\\n\\nDoctrine:responseTime: An exception occurred in the driver: SQLSTATE[HY000] [2002] No such file or directory",
+    "checks": {
+        "Example:responseTime": {
+            "componentId": "baz",
+            "componentType": "component",
+            "observedUnit": "ms",
+            "status": "pass",
+            "affectedEndpoints": [
+                "\/api\/foo"
+            ],
+            "time": "2024-01-01T00:01:00+00:00"
+        },
+        "Doctrine:responseTime": {
+            "observedUnit": "ms",
+            "status": "fail",
+            "time": "2024-01-01T00:01:00+00:00",
+            "output": "An exception occurred in the driver: SQLSTATE[HY000] [2002] No such file or directory"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "status": "fail",
+    "output": "2 dependencies have problems:\\n\\nDoctrine:responseTime: An exception occurred in the driver: SQLSTATE[HY000] [2002] No such file or directory\nIntegrity Line:responseTime: HTTP Status code(s) 200, 204 expected, but  received. Response: ",
+    "checks": {
+        "Doctrine:responseTime": {
+            "observedUnit": "ms",
+            "status": "fail",
+            "time": "2024-01-01T00:01:00+00:00",
+            "output": "An exception occurred in the driver: SQLSTATE[HY000] [2002] No such file or directory"
+        },
+        "Integrity Line:responseTime": {
+            "observedUnit": "ms",
+            "status": "fail",
+            "time": "2024-01-01T00:01:00+00:00",
+            "output": "HTTP Status code(s) 200, 204 expected, but  received. Response: "
+        }
+    }
+}

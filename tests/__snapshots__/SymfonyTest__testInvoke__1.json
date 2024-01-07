@@ -1,0 +1,11 @@
+{
+    "status": "pass",
+    "version": "example-response",
+    "checks": {
+        "example-check:responseTime": {
+            "observedUnit": "ms",
+            "status": "pass",
+            "time": "2024-01-01T00:01:00+00:00"
+        }
+    }
+}

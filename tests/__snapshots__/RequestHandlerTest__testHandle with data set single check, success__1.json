@@ -1,0 +1,22 @@
+{
+    "status": "pass",
+    "version": "1.0",
+    "releaseId": "release-id",
+    "checks": {
+        "Example:responseTime": {
+            "componentId": "baz",
+            "componentType": "component",
+            "observedUnit": "ms",
+            "status": "pass",
+            "affectedEndpoints": [
+                "\/api\/foo"
+            ],
+            "time": "2024-01-01T00:01:00+00:00"
+        }
+    },
+    "links": {
+        "rfc": "https:\/\/inadarei.github.io\/rfc-healthcheck\/"
+    },
+    "serviceId": "data-center-api",
+    "description": "Example full healthcheck response"
+}

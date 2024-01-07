@@ -1,0 +1,71 @@
+{
+    "name": "ostrolucky/health-check-provider",
+    "description": "Provides healthcheck endpoints in accordance with IETF's healthcheck draft RFC",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "health",
+        "psr-15"
+    ],
+    "authors": [
+        {
+            "name": "Gabriel Ostrolucký",
+            "email": "gabriel.ostrolucky@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "psr/clock": "^1.0",
+        "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.0",
+        "psr/http-server-handler": "^1.0"
+    },
+    "require-dev": {
+        "doctrine/dbal": "^3.7",
+        "ramsey/devtools": "^2.0",
+        "spatie/phpunit-snapshot-assertions": "^5.1",
+        "symfony/browser-kit": "^7.0",
+        "symfony/clock": "^7.0",
+        "symfony/framework-bundle": "^7.0",
+        "symfony/psr-http-message-bridge": "^7.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Ostrolucky\\HealthCheckProvider\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ostrolucky\\Test\\HealthCheckProvider\\": "tests/"
+        },
+        "files": [
+            "vendor/symfony/dependency-injection/Loader/Configurator/ContainerConfigurator.php"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "captainhook/plugin-composer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "ergebnis/composer-normalize": true,
+            "php-http/discovery": true,
+            "phpstan/extension-installer": true,
+            "ramsey/composer-repl": true,
+            "ramsey/devtools": true
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "captainhook": {
+            "force-install": true
+        },
+        "ramsey/conventional-commits": {
+            "configFile": "conventional-commits.json"
+        },
+        "ramsey/devtools": {
+            "command-prefix": "dev",
+            "memory-limit": "-1"
+        }
+    }
+}

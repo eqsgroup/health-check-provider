@@ -1,0 +1,24 @@
+{
+    "status": "warn",
+    "output": "1 dependency has a problem:\\n\\nwarn: ",
+    "checks": {
+        "Example:responseTime": {
+            "componentId": "baz",
+            "componentType": "component",
+            "observedUnit": "ms",
+            "status": "pass",
+            "affectedEndpoints": [
+                "\/api\/foo"
+            ],
+            "time": "2024-01-01T00:01:00+00:00"
+        },
+        "Integrity Line:responseTime": {
+            "observedUnit": "ms",
+            "status": "pass",
+            "time": "2024-01-01T00:01:00+00:00"
+        },
+        "warn": {
+            "status": "warn"
+        }
+    }
+}
