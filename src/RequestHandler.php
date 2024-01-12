@@ -61,7 +61,7 @@ class RequestHandler implements RequestHandlerInterface
 
         $problemCount = count($problems);
 
-        return $this->responseFactory->createResponse()
+        return $this->responseFactory->createResponse($status === Status::unhealthy ? 503 : 200)
             ->withHeader('Content-Type', 'application/health+json')
             ->withBody($this->streamFactory->createStream(json_encode(
                 $this->healthResponse

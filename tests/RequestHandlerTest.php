@@ -32,7 +32,7 @@ class RequestHandlerTest extends TestCase
 
     /** @param list<HealthCheckerInterface> $checks */
     #[DataProvider('handleProvider')]
-    public function testHandle(HealthResponse $healthResponse, array $checks): void
+    public function testHandle(HealthResponse $healthResponse, array $checks, int $expectedStatusCode): void
     {
         $handler = new RequestHandler(
             $healthResponse,
@@ -43,6 +43,7 @@ class RequestHandlerTest extends TestCase
 
         $response = $handler->handle(new ServerRequest());
 
+        $this->assertSame($expectedStatusCode, $response->getStatusCode());
         $this->assertSame(['Content-Type' => ['application/health+json']], $response->getHeaders());
         $this->assertMatchesJsonSnapshot($response->getBody()->__toString());
     }
@@ -72,6 +73,7 @@ class RequestHandlerTest extends TestCase
                         $clock,
                     ),
                 ],
+                200,
             ],
             'single check, fail' => [
                 new HealthResponse(),
@@ -82,6 +84,7 @@ class RequestHandlerTest extends TestCase
                         $clock,
                     ),
                 ],
+                503,
             ],
             'all checks fail' => [
                 new HealthResponse(),
@@ -94,10 +97,12 @@ class RequestHandlerTest extends TestCase
                         clock: $clock,
                     ),
                 ],
+                503,
             ],
             'multiple checks, one fail' => [
                 new HealthResponse(),
                 [$successCheck, $doctrineFailCheck],
+                503,
             ],
             'multiple checks, one warn' => [
                 new HealthResponse(),
@@ -117,6 +122,7 @@ class RequestHandlerTest extends TestCase
                         }
                     },
                 ],
+                200,
             ],
         ];
     }
