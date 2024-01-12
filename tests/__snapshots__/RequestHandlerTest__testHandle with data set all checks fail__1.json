@@ -1,6 +1,6 @@
 {
     "status": "fail",
-    "output": "2 dependencies have problems:\\n\\nDoctrine:responseTime: An exception occurred in the driver: SQLSTATE[HY000] [2002] No such file or directory\nIntegrity Line:responseTime: HTTP Status code(s) 200, 204 expected, but  received. Response: ",
+    "output": "2 dependencies have problems:\\n\\nDoctrine:responseTime: An exception occurred in the driver: SQLSTATE[HY000] [2002] No such file or directory\nIntegrity Line:responseTime: cURL error 6: Could not resolve host: not-existing (see https:\/\/curl.haxx.se\/libcurl\/c\/libcurl-errors.html)",
     "checks": {
         "Doctrine:responseTime": {
             "observedUnit": "ms",
@@ -12,7 +12,7 @@
             "observedUnit": "ms",
             "status": "fail",
             "time": "2024-01-01T00:01:00+00:00",
-            "output": "HTTP Status code(s) 200, 204 expected, but  received. Response: "
+            "output": "cURL error 6: Could not resolve host: not-existing (see https:\/\/curl.haxx.se\/libcurl\/c\/libcurl-errors.html)"
         }
     }
 }

@@ -36,7 +36,7 @@ class HttpHealthChecker implements HealthCheckerInterface
 
         $status = $response?->getStatusCode();
 
-        if (in_array($status, $this->expectedStatusCodes, true)) {
+        if ($details->getStatus() !== Status::healthy || in_array($status, $this->expectedStatusCodes, true)) {
             return $details;
         }
 
