@@ -77,7 +77,7 @@ class SymfonyTest extends WebTestCase
                         new HealthResponse('example-response'),
                         [
                             new CallableHealthChecker(
-                                new CheckDetails('example-check'),
+                                new CheckDetails('example-check', true),
                                 fn () => true,
                                 500,
                                 new MockClock('2024-01-01 00:01:00'),

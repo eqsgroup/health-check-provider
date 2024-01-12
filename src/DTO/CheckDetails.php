@@ -26,11 +26,13 @@ class CheckDetails implements JsonSerializable
     private ?array $affectedEndpoints = null;
     private ?DateTimeImmutable $time = null;
     private ?string $output = null;
-    /** @var ?array<string, string> */
-    private ?array $links = null;
 
-    public function __construct(private string $componentName)
-    {
+    /** @param ?array<string, string> $links */
+    public function __construct(
+        private string $componentName,
+        public readonly bool $isCritical,
+        private ?array $links = null,
+    ) {
         if (str_contains($this->componentName, ':')) {
             throw new InvalidArgumentException('Component name MUST NOT contain colon (":")');
         }

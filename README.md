@@ -87,10 +87,10 @@ class GetHealthCheckController extends AbstractController
             (new RequestHandler(
                 new HealthResponse(),
                 [
-                    new CallableHealthChecker(new CheckDetails('AMQP'), fn () => $this->transport->getMessageCount()),
-                    new DoctrineConnectionHealthChecker(new CheckDetails('Database'), $this->connection),
+                    new CallableHealthChecker(new CheckDetails('AMQP', true), fn () => $this->transport->getMessageCount()),
+                    new DoctrineConnectionHealthChecker(new CheckDetails('Database', true), $this->connection),
                     new HttpHealthChecker(
-                        new CheckDetails('External API'),
+                        new CheckDetails('External API', false),
                         $this->httpClient,
                         new \GuzzleHttp\Psr7\Request('GET', 'https://www.google.com'),
                     ),

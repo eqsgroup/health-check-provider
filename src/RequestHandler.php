@@ -54,6 +54,10 @@ class RequestHandler implements RequestHandlerInterface
 
             $problems[] = $details;
 
+            if ($checkStatus === Status::unhealthy && !$details->isCritical) {
+                $checkStatus = Status::healthyWithConcerns;
+            }
+
             if ($checkStatus === Status::unhealthy || $status === Status::healthy) {
                 $status = $checkStatus;
             }

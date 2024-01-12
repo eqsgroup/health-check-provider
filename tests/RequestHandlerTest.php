@@ -6,6 +6,7 @@ namespace Ostrolucky\Test\HealthCheckProvider;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDO\MySQL\Driver;
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Request;
@@ -64,7 +65,7 @@ class RequestHandlerTest extends TestCase
                 ),
                 [
                     $successCheck = new CallableHealthChecker(
-                        (new CheckDetails('Example'))
+                        (new CheckDetails('Example', true))
                             ->withAffectedEndpoints(['/api/foo'])
                             ->withComponentId('baz')
                             ->withComponentType('component'),
@@ -79,7 +80,7 @@ class RequestHandlerTest extends TestCase
                 new HealthResponse(),
                 [
                     $doctrineFailCheck = new DoctrineConnectionHealthChecker(
-                        new CheckDetails('Doctrine'),
+                        new CheckDetails('Doctrine', true),
                         new Connection([], new Driver()),
                         $clock,
                     ),
@@ -91,7 +92,7 @@ class RequestHandlerTest extends TestCase
                 [
                     $doctrineFailCheck,
                     new HttpHealthChecker(
-                        new CheckDetails('Integrity Line'),
+                        new CheckDetails('Integrity Line', true),
                         new Client(),
                         new Request('GET', 'not-existing'),
                         clock: $clock,
@@ -104,12 +105,24 @@ class RequestHandlerTest extends TestCase
                 [$successCheck, $doctrineFailCheck],
                 503,
             ],
+            'multiple checks, non critical fail' => [
+                new HealthResponse(),
+                [
+                    $successCheck,
+                    new CallableHealthChecker(
+                        new CheckDetails('Minor', false),
+                        fn () => throw new Exception('Foo'),
+                        clock: $clock,
+                    ),
+                ],
+                200,
+            ],
             'multiple checks, one warn' => [
                 new HealthResponse(),
                 [
                     $successCheck,
                     new HttpHealthChecker(
-                        new CheckDetails('Integrity Line'),
+                        new CheckDetails('Integrity Line', true),
                         new Client(['handler' => new MockHandler([new Response()])]),
                         new Request('GET', 'not-existing'),
                         clock: $clock,
@@ -118,7 +131,7 @@ class RequestHandlerTest extends TestCase
                     {
                         public function check(): CheckDetails
                         {
-                            return (new CheckDetails('warn'))->withStatus(Status::healthyWithConcerns);
+                            return (new CheckDetails('warn', true))->withStatus(Status::healthyWithConcerns);
                         }
                     },
                 ],

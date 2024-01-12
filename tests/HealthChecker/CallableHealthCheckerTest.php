@@ -26,7 +26,7 @@ class CallableHealthCheckerTest extends TestCase
         );
 
         $this->assertMatchesJsonSnapshot(json_encode(
-            (new CallableHealthChecker(new CheckDetails('example'), fn () => true, 500, $clock))->check(),
+            (new CallableHealthChecker(new CheckDetails('example', true), fn () => true, 500, $clock))->check(),
         ));
     }
 }
