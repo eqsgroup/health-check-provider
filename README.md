@@ -24,6 +24,11 @@ TODO: Make sure the following URLs are correct and working for your project.
 ## About
 Package provides endpoints which conform to <a href="https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06">draft 06 version of IETF's healthcheck RFC</a>.
 
+### Integrations
+We are shipping following integrations, but it's very easy to implement your own by reusing [CallableHealthChecker](src/HealthChecker/CallableHealthChecker.php):
+- HTTP request
+- Doctrine Connection
+
 ## Installation
 
 Install this package as a dependency using [Composer](https://getcomposer.org).
