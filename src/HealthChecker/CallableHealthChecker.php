@@ -59,6 +59,6 @@ class CallableHealthChecker implements HealthCheckerInterface
 
     private function getMsSinceUnixEpoch(DateTimeImmutable $date): int
     {
-        return (int) ($date->getTimestamp() + (int) $date->format('u') / 1000);
+        return (int) ($date->getTimestamp() * 1000 + (int) $date->format('u') / 1000);
     }
 }

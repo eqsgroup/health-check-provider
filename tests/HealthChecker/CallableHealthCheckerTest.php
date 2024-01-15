@@ -7,6 +7,7 @@ namespace Ostrolucky\Test\HealthCheckProvider\HealthChecker;
 use DateTimeImmutable;
 use Ostrolucky\HealthCheckProvider\DTO\CheckDetails;
 use Ostrolucky\HealthCheckProvider\HealthChecker\CallableHealthChecker;
+use PHPUnit\Framework\Attributes\TestWith;
 use PHPUnit\Framework\TestCase;
 use Psr\Clock\ClockInterface;
 use Spatie\Snapshots\MatchesSnapshots;
@@ -17,13 +18,13 @@ class CallableHealthCheckerTest extends TestCase
 {
     use MatchesSnapshots;
 
-    public function testFailOnTimeoutReached(): void
+    #[TestWith(['@1704455198.0166', '@1704455198.7166'])]
+    #[TestWith(['2024-01-15 12:43:41.328996', '2024-01-15 12:43:48.551069'])]
+    public function testFailOnTimeoutReached(string $start, string $finish): void
     {
         $clock = $this->createMock(ClockInterface::class);
-        $clock->method('now')->willReturnOnConsecutiveCalls(
-            new DateTimeImmutable('@1704455198.0166'),
-            new DateTimeImmutable('@1704455198.7166'),
-        );
+        $clock->method('now')
+            ->willReturnOnConsecutiveCalls(new DateTimeImmutable($start), new DateTimeImmutable($finish));
 
         $this->assertMatchesJsonSnapshot(json_encode(
             (new CallableHealthChecker(new CheckDetails('example', true), fn () => true, 500, $clock))->check(),
