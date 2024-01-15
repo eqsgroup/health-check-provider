@@ -65,10 +65,13 @@ class RequestHandlerTest extends TestCase
                 ),
                 [
                     $successCheck = new CallableHealthChecker(
-                        (new CheckDetails('Example', true))
-                            ->withAffectedEndpoints(['/api/foo'])
-                            ->withComponentId('baz')
-                            ->withComponentType('component'),
+                        new CheckDetails(
+                            'Example',
+                            true,
+                            affectedEndpoints: ['/api/foo'],
+                            componentId: 'baz',
+                            componentType: 'component',
+                        ),
                         fn () => true,
                         500,
                         $clock,

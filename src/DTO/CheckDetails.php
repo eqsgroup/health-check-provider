@@ -15,23 +15,25 @@ use function str_contains;
 /** @see https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#name-the-checks-object */
 class CheckDetails implements JsonSerializable
 {
-    private string | MeasurementName | null $measurementName = null;
-    private ?string $componentId = null;
-    private ?string $componentType = null;
     /** @var string|int|float|array<mixed>|null */
     private string | int | float | array | null $observedValue = null;
-    private ?string $observedUnit = null;
     private Status $status = Status::healthy;
-    /** @var ?list<string> */
-    private ?array $affectedEndpoints = null;
     private ?DateTimeImmutable $time = null;
     private ?string $output = null;
 
-    /** @param ?array<string, string> $links */
+    /**
+     * @param ?list<string> $affectedEndpoints
+     * @param ?array<string, string> $links
+     */
     public function __construct(
         private string $componentName,
         public readonly bool $isCritical,
         private ?array $links = null,
+        private ?array $affectedEndpoints = null,
+        private ?string $componentId = null,
+        private ?string $componentType = null,
+        private string | MeasurementName | null $measurementName = null,
+        private ?string $observedUnit = null,
     ) {
         if (str_contains($this->componentName, ':')) {
             throw new InvalidArgumentException('Component name MUST NOT contain colon (":")');
@@ -42,22 +44,6 @@ class CheckDetails implements JsonSerializable
     {
         $that = clone $this;
         $that->measurementName = $measurementName;
-
-        return $that;
-    }
-
-    public function withComponentId(?string $componentId): static
-    {
-        $that = clone $this;
-        $that->componentId = $componentId;
-
-        return $that;
-    }
-
-    public function withComponentType(?string $componentType): static
-    {
-        $that = clone $this;
-        $that->componentType = $componentType;
 
         return $that;
     }
@@ -88,15 +74,6 @@ class CheckDetails implements JsonSerializable
     {
         $that = clone $this;
         $that->status = $status;
-
-        return $that;
-    }
-
-    /** @param ?list<string> $affectedEndpoints */
-    public function withAffectedEndpoints(?array $affectedEndpoints): static
-    {
-        $that = clone $this;
-        $that->affectedEndpoints = $affectedEndpoints;
 
         return $that;
     }
