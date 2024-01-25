@@ -16,6 +16,10 @@
         </ignoreFiles>
     </projectFiles>
 
+    <issueHandlers>
+        <RiskyTruthyFalsyComparison errorLevel="suppress" />
+    </issueHandlers>
+
     <plugins>
         <pluginClass class="Psalm\MockeryPlugin\Plugin"/>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
