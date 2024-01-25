@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Ostrolucky\HealthCheckProvider\HealthChecker;
+namespace EQS\HealthCheckProvider\HealthChecker;
 
-use Ostrolucky\HealthCheckProvider\DTO\CheckDetails;
+use EQS\HealthCheckProvider\DTO\CheckDetails;
 
 interface HealthCheckerInterface
 {

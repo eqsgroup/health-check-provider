@@ -1,4 +1,4 @@
-<h1 align="center">ostrolucky/health-check-provider</h1>
+<h1 align="center">eqs/health-check-provider</h1>
 
 <p align="center">
     <strong>Provides structure for healthcheck endpoints in accordance with IETF's healthcheck draft RFC</strong>
@@ -10,13 +10,13 @@ TODO: Make sure the following URLs are correct and working for your project.
       overview of your package.
 
 <p align="center">
-    <a href="https://github.com/ostrolucky/health-check-provider"><img src="https://img.shields.io/badge/source-health--check--provider/health--check--provider-blue.svg?style=flat-square" alt="Source Code"></a>
-    <a href="https://packagist.org/packages/ostrolucky/health-check-provider"><img src="https://img.shields.io/packagist/v/ostrolucky/health-check-provider.svg?style=flat-square&label=release" alt="Download Package"></a>
-    <a href="https://php.net"><img src="https://img.shields.io/packagist/php-v/ostrolucky/health-check-provider.svg?style=flat-square&colorB=%238892BF" alt="PHP Programming Language"></a>
-    <a href="https://github.com/ostrolucky/health-check-provider/blob/main/LICENSE"><img src="https://img.shields.io/packagist/l/ostrolucky/health-check-provider.svg?style=flat-square&colorB=darkcyan" alt="Read License"></a>
-    <a href="https://github.com/ostrolucky/health-check-provider/actions/workflows/continuous-integration.yml"><img src="https://img.shields.io/github/actions/workflow/status/ostrolucky/health-check-provider/continuous-integration.yml?branch=main&style=flat-square&logo=github" alt="Build Status"></a>
-    <a href="https://codecov.io/gh/ostrolucky/health-check-provider"><img src="https://img.shields.io/codecov/c/gh/ostrolucky/health-check-provider?label=codecov&logo=codecov&style=flat-square" alt="Codecov Code Coverage"></a>
-    <a href="https://shepherd.dev/github/ostrolucky/health-check-provider"><img src="https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Fostrolucky%2Fhealth-check-provider2%2Fcoverage" alt="Psalm Type Coverage"></a>
+    <a href="https://github.com/eqs/health-check-provider"><img src="https://img.shields.io/badge/source-health--check--provider/health--check--provider-blue.svg?style=flat-square" alt="Source Code"></a>
+    <a href="https://packagist.org/packages/eqs/health-check-provider"><img src="https://img.shields.io/packagist/v/eqs/health-check-provider.svg?style=flat-square&label=release" alt="Download Package"></a>
+    <a href="https://php.net"><img src="https://img.shields.io/packagist/php-v/eqs/health-check-provider.svg?style=flat-square&colorB=%238892BF" alt="PHP Programming Language"></a>
+    <a href="https://github.com/eqs/health-check-provider/blob/main/LICENSE"><img src="https://img.shields.io/packagist/l/eqs/health-check-provider.svg?style=flat-square&colorB=darkcyan" alt="Read License"></a>
+    <a href="https://github.com/eqs/health-check-provider/actions/workflows/continuous-integration.yml"><img src="https://img.shields.io/github/actions/workflow/status/eqs/health-check-provider/continuous-integration.yml?branch=main&style=flat-square&logo=github" alt="Build Status"></a>
+    <a href="https://codecov.io/gh/eqs/health-check-provider"><img src="https://img.shields.io/codecov/c/gh/eqs/health-check-provider?label=codecov&logo=codecov&style=flat-square" alt="Codecov Code Coverage"></a>
+    <a href="https://shepherd.dev/github/eqs/health-check-provider"><img src="https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Fostrolucky%2Fhealth-check-provider2%2Fcoverage" alt="Psalm Type Coverage"></a>
 </p>
 -->
 
@@ -34,7 +34,7 @@ We are shipping following integrations, but it's very easy to implement your own
 Install this package as a dependency using [Composer](https://getcomposer.org).
 
 ``` bash
-composer require ostrolucky/health-check-provider
+composer require eqs/health-check-provider
 ```
 
 ## Usage
@@ -51,12 +51,12 @@ For this example, on top of standard symfony packages, you also need `php-http/d
 ```php
 use Doctrine\DBAL\Connection;
 use GuzzleHttp\Psr7\HttpFactory;
-use Ostrolucky\HealthCheckProvider\DTO\CheckDetails;
-use Ostrolucky\HealthCheckProvider\DTO\HealthResponse;
-use Ostrolucky\HealthCheckProvider\HealthChecker\CallableHealthChecker;
-use Ostrolucky\HealthCheckProvider\HealthChecker\DoctrineConnectionHealthChecker;
-use Ostrolucky\HealthCheckProvider\HealthChecker\HttpHealthChecker;
-use Ostrolucky\HealthCheckProvider\RequestHandler;
+use EQS\HealthCheckProvider\DTO\CheckDetails;
+use EQS\HealthCheckProvider\DTO\HealthResponse;
+use EQS\HealthCheckProvider\HealthChecker\CallableHealthChecker;
+use EQS\HealthCheckProvider\HealthChecker\DoctrineConnectionHealthChecker;
+use EQS\HealthCheckProvider\HealthChecker\HttpHealthChecker;
+use EQS\HealthCheckProvider\RequestHandler;
 use Psr\Http\Client\ClientInterface;
 use Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory;
 use Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory;
@@ -119,7 +119,7 @@ Contributions are welcome! To contribute, please familiarize yourself with
 
 ## Copyright and License
 
-ostrolucky/health-check-provider is copyright © [Gabriel Ostrolucký](mailto:gabriel.ostrolucky@gmail.com)
+eqs/health-check-provider is copyright © [EQS Group](https://www.eqs.com/)
 and licensed for use under the terms of the
 MIT License (MIT). Please see [LICENSE](LICENSE) for more information.
 

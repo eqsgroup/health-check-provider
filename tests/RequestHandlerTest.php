@@ -2,10 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Ostrolucky\Test\HealthCheckProvider;
+namespace EQS\Test\HealthCheckProvider;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDO\MySQL\Driver;
+use EQS\HealthCheckProvider\DTO\CheckDetails;
+use EQS\HealthCheckProvider\DTO\HealthResponse;
+use EQS\HealthCheckProvider\DTO\Status;
+use EQS\HealthCheckProvider\HealthChecker\CallableHealthChecker;
+use EQS\HealthCheckProvider\HealthChecker\DoctrineConnectionHealthChecker;
+use EQS\HealthCheckProvider\HealthChecker\HealthCheckerInterface;
+use EQS\HealthCheckProvider\HealthChecker\HttpHealthChecker;
+use EQS\HealthCheckProvider\RequestHandler;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
@@ -14,14 +22,6 @@ use GuzzleHttp\Psr7\Response;
 use Laminas\Diactoros\ResponseFactory;
 use Laminas\Diactoros\ServerRequest;
 use Laminas\Diactoros\StreamFactory;
-use Ostrolucky\HealthCheckProvider\DTO\CheckDetails;
-use Ostrolucky\HealthCheckProvider\DTO\HealthResponse;
-use Ostrolucky\HealthCheckProvider\DTO\Status;
-use Ostrolucky\HealthCheckProvider\HealthChecker\CallableHealthChecker;
-use Ostrolucky\HealthCheckProvider\HealthChecker\DoctrineConnectionHealthChecker;
-use Ostrolucky\HealthCheckProvider\HealthChecker\HealthCheckerInterface;
-use Ostrolucky\HealthCheckProvider\HealthChecker\HttpHealthChecker;
-use Ostrolucky\HealthCheckProvider\RequestHandler;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spatie\Snapshots\MatchesSnapshots;

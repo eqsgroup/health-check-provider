@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Ostrolucky\Test\HealthCheckProvider;
+namespace EQS\Test\HealthCheckProvider;
 
+use EQS\HealthCheckProvider\DTO\CheckDetails;
+use EQS\HealthCheckProvider\DTO\HealthResponse;
+use EQS\HealthCheckProvider\HealthChecker\CallableHealthChecker;
+use EQS\HealthCheckProvider\RequestHandler;
 use Http\Discovery\Psr17Factory;
-use Ostrolucky\HealthCheckProvider\DTO\CheckDetails;
-use Ostrolucky\HealthCheckProvider\DTO\HealthResponse;
-use Ostrolucky\HealthCheckProvider\HealthChecker\CallableHealthChecker;
-use Ostrolucky\HealthCheckProvider\RequestHandler;
 use Spatie\Snapshots\MatchesSnapshots;
 use Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory;
 use Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory;

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Ostrolucky\HealthCheckProvider\HealthChecker;
+namespace EQS\HealthCheckProvider\HealthChecker;
 
 use Doctrine\DBAL\Connection;
-use Ostrolucky\HealthCheckProvider\DTO\CheckDetails;
+use EQS\HealthCheckProvider\DTO\CheckDetails;
 use Psr\Clock\ClockInterface;
 
 class DoctrineConnectionHealthChecker extends CallableHealthChecker

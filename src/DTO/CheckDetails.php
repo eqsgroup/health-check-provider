@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ostrolucky\HealthCheckProvider\DTO;
+namespace EQS\HealthCheckProvider\DTO;
 
 use DateTimeImmutable;
 use DateTimeInterface;

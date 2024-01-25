@@ -1,4 +1,4 @@
-# ostrolucky/health-check-provider Changelog
+# eqs/health-check-provider Changelog
 
 All notable changes to this project will be documented in this file.
 

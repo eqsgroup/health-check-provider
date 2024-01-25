@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Ostrolucky\Test\HealthCheckProvider\HealthChecker;
+namespace EQS\Test\HealthCheckProvider\HealthChecker;
 
 use DateTimeImmutable;
-use Ostrolucky\HealthCheckProvider\DTO\CheckDetails;
-use Ostrolucky\HealthCheckProvider\HealthChecker\CallableHealthChecker;
+use EQS\HealthCheckProvider\DTO\CheckDetails;
+use EQS\HealthCheckProvider\HealthChecker\CallableHealthChecker;
 use PHPUnit\Framework\Attributes\TestWith;
 use PHPUnit\Framework\TestCase;
 use Psr\Clock\ClockInterface;

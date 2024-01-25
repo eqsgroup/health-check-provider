@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Ostrolucky\HealthCheckProvider;
+namespace EQS\HealthCheckProvider;
 
-use Ostrolucky\HealthCheckProvider\DTO\CheckDetails;
-use Ostrolucky\HealthCheckProvider\DTO\HealthResponse;
-use Ostrolucky\HealthCheckProvider\DTO\Status;
-use Ostrolucky\HealthCheckProvider\HealthChecker\HealthCheckerInterface;
+use EQS\HealthCheckProvider\DTO\CheckDetails;
+use EQS\HealthCheckProvider\DTO\HealthResponse;
+use EQS\HealthCheckProvider\DTO\Status;
+use EQS\HealthCheckProvider\HealthChecker\HealthCheckerInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

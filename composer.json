@@ -1,5 +1,5 @@
 {
-    "name": "ostrolucky/health-check-provider",
+    "name": "eqs/health-check-provider",
     "description": "Provides healthcheck endpoints in accordance with IETF's healthcheck draft RFC",
     "license": "MIT",
     "type": "library",
@@ -33,12 +33,12 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Ostrolucky\\HealthCheckProvider\\": "src/"
+            "EQS\\HealthCheckProvider\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Ostrolucky\\Test\\HealthCheckProvider\\": "tests/"
+            "EQS\\Test\\HealthCheckProvider\\": "tests/"
         },
         "files": [
             "vendor/symfony/dependency-injection/Loader/Configurator/ContainerConfigurator.php"

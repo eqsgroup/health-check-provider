@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Ostrolucky\HealthCheckProvider\HealthChecker;
+namespace EQS\HealthCheckProvider\HealthChecker;
 
 use Closure;
 use DateTimeImmutable;
-use Ostrolucky\HealthCheckProvider\DTO\CheckDetails;
-use Ostrolucky\HealthCheckProvider\DTO\MeasurementName;
-use Ostrolucky\HealthCheckProvider\DTO\Status;
+use EQS\HealthCheckProvider\DTO\CheckDetails;
+use EQS\HealthCheckProvider\DTO\MeasurementName;
+use EQS\HealthCheckProvider\DTO\Status;
 use Psr\Clock\ClockInterface;
 use Throwable;
 
