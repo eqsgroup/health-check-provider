@@ -46,7 +46,7 @@ class RequestHandlerTest extends TestCase
 
         $this->assertSame($expectedStatusCode, $response->getStatusCode());
         $this->assertSame(['Content-Type' => ['application/health+json']], $response->getHeaders());
-        $this->assertMatchesJsonSnapshot($response->getBody()->__toString());
+        $this->assertMatchesSnapshot($response->getBody()->__toString());
     }
 
     /** @return array<string, array{0: HealthResponse, 1: list<HealthCheckerInterface>}> */

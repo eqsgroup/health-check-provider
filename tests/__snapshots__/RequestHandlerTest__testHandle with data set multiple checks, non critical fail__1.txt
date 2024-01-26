@@ -1,6 +1,6 @@
 {
     "status": "warn",
-    "output": "1 dependency has a problem:\\n\\nwarn: ",
+    "output": "1 dependency has a problem:\\n\\nMinor:responseTime: Foo",
     "checks": {
         "Example:responseTime": {
             "componentId": "baz",
@@ -8,17 +8,15 @@
             "observedUnit": "ms",
             "status": "pass",
             "affectedEndpoints": [
-                "\/api\/foo"
+                "/api/foo"
             ],
             "time": "2024-01-01T00:01:00+00:00"
         },
-        "Integrity Line:responseTime": {
+        "Minor:responseTime": {
             "observedUnit": "ms",
-            "status": "pass",
-            "time": "2024-01-01T00:01:00+00:00"
-        },
-        "warn": {
-            "status": "warn"
+            "status": "fail",
+            "time": "2024-01-01T00:01:00+00:00",
+            "output": "Foo"
         }
     }
 }

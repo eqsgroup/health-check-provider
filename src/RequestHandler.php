@@ -21,7 +21,9 @@ use function implode;
 use function json_encode;
 use function sprintf;
 
+use const JSON_PRETTY_PRINT;
 use const JSON_THROW_ON_ERROR;
+use const JSON_UNESCAPED_SLASHES;
 
 class RequestHandler implements RequestHandlerInterface
 {
@@ -88,7 +90,7 @@ class RequestHandler implements RequestHandlerInterface
                             ),
                         ),
                     ),
-                JSON_THROW_ON_ERROR,
+                JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT,
             )));
     }
 }
