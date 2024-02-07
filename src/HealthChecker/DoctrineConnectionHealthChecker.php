@@ -15,7 +15,7 @@ class DoctrineConnectionHealthChecker extends CallableHealthChecker
         parent::__construct(
             $checkDetails,
             fn () => $connection->executeStatement(
-                $connection->getDriver()->getDatabasePlatform()->getDummySelectSQL(),
+                $connection->getDriver()->getDatabasePlatform($connection)->getDummySelectSQL(),
             ),
             500,
             $clock,
