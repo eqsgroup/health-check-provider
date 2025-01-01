@@ -31,9 +31,9 @@ jobs:
         uses: "actions/checkout@v4.2.2"
 
       - name: "Install PHP"
-        uses: "shivammathur/setup-php@2.31.1"
+        uses: "shivammathur/setup-php@2.32.0"
         with:
-          php-version: "latest"
+          php-version: "8.3"
           coverage: "none"
 
       - name: "Install dependencies (Composer)"
@@ -54,9 +54,9 @@ jobs:
         uses: "actions/checkout@v4.2.2"
 
       - name: "Install PHP"
-        uses: "shivammathur/setup-php@2.31.1"
+        uses: "shivammathur/setup-php@2.32.0"
         with:
-          php-version: "latest"
+          php-version: "8.3"
           coverage: "none"
           ini-values: "memory_limit=-1"
 
@@ -81,7 +81,7 @@ jobs:
       - name: "Install PHP"
         uses: "shivammathur/setup-php@2.31.1"
         with:
-          php-version: "latest"
+          php-version: "8.3"
           coverage: "pcov"
           ini-values: "memory_limit=-1"
 
@@ -92,7 +92,7 @@ jobs:
         run: "composer dev:test:coverage:ci"
 
       - name: "Publish coverage report to Codecov"
-        uses: "codecov/codecov-action@v4.6.0"
+        uses: "codecov/codecov-action@v5.1.2"
 
   unit-tests:
     name: "Unit tests"
@@ -125,7 +125,7 @@ jobs:
         uses: "actions/checkout@v4.2.2"
 
       - name: "Install PHP"
-        uses: "shivammathur/setup-php@2.31.1"
+        uses: "shivammathur/setup-php@2.32.0"
         with:
           php-version: "${{ matrix.php }}"
           coverage: "none"
